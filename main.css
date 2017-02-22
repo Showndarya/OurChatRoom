@@ -1,0 +1,26 @@
+body{
+	background-color: purple;
+	text-align: center;
+	color: yellow;
+}
+h1{
+	color: yellow;
+	text-shadow: 3px 3px 3px #0000FF;
+}
+.hidden{
+	display: none;
+}
+input.login{
+	height: 40px; 
+	width: 100px; 
+	color: purple;
+	background-color:yellow;
+	border:5px solid yellow;
+	border-radius: 10px;
+	font-size: 20px;
+}
+input.login:hover{ 
+	color: yellow;
+	background-color:purple;
+	border:5px solid purple;
+}
