@@ -1,0 +1,64 @@
+body, html {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	background-color: purple;
+	color: yellow;
+}
+
+.container {
+	width: 100%;
+	height: 100%;
+	/*background-color: black;*/
+}
+
+.left{
+    width: 25%;
+    height: 90%;
+    float: left;
+    display: block;
+    /*background-color: red;*/
+    border-collapse: collapse;
+}
+
+.middle {
+    width: 75%;
+    height: 90%;
+    float: left;
+    /*background-color: blue;*/
+    border-collapse: collapse;
+}
+
+.right {
+	width: 0%;
+	height: 0%;
+	position: relative;
+	float: right;
+	background-color: yellow;
+	border-collapse: collapse;
+}
+
+.top {
+	width: 100%;
+	height: 10%;
+	border-collapse: collapse;
+	/*background-color: green;*/
+}
+.chat_head {
+	width: 100%;
+	height: 10%;
+	background-color: yellow;
+	color: purple;
+	border: 1px solid purple;
+	font-size: 20px;
+	border-radius: 20px;
+}
+.chat_head:hover {
+	width:100%;
+	height:15%;
+	background-color: green;
+	color: white;
+	font-size: 30px;
+	border-color: purple;
+	border-radius: 30px;
+}

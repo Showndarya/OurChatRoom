@@ -11,10 +11,14 @@
 		$userfilename="../chats/".$_POST['username']."/.user_creds";
 		//echo $userfilename;
 		$userfile = fopen($userfilename, "w") or die("Unable to open file!");
-		$creds="Firstname: ".$_POST['firstname']."\nLastname: ".$_POST['lastname']."\nUsername: ".$_POST['username']."\nPassword: ".$_POST['Password']."\nEmail: ".$_POST['email']."\nSign Up Date: ".time()."\n";
-		fwrite($userfile, $creds);
+		$creds->firstname=$_POST['firstname'];
+		$creds->lastname=$_POST['lastname'];
+		$creds->username=$_POST['username'];
+		$creds->password=$_POST['Password'];
+		$creds->time=time();
+		fwrite($userfile, json_encode($creds));
 		fclose($userfile);
-		header("Location Chat_page.php");
+		header("Location: ../Chat_Page.html");
 		exit();
 		//echo "Done";
 	}

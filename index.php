@@ -19,7 +19,21 @@
 	</head>
 	<body>
 		<h1 align="center">Welcome to the chat room!</h1>
-		<h2><form method="POST" action="Scripts/Chat_Page.php" style="float: left;">
+		<?php
+			session_start();
+			if($_SESSION['nameerror']==1)
+			{
+				$_SESSION['nameerror']=0;
+				echo "<p>Username does not exist.</p>";
+			}
+			else if($_SESSION['passerror']==1)
+			{
+				$_SESSION['passerror']=0;
+				echo "<p>Password does not match.</p>";
+			}
+			session_destroy();
+		?>
+		<h2><form method="POST" action="Scripts/Chat_page.php" style="float: left;">
 			Log in:<br><br>
 			Username:
 			<input type="text" placeholder="Ankit_22" name="username"><br><br>

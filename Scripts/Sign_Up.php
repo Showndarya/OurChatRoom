@@ -13,6 +13,7 @@
 				$_SESSION['usererror']=0;
 				echo "<p>Username already exists. Try a new username.</p>";
 			}
+			session_destroy();
 		?>
 		<h2>
 			<form method="POST" action="Add_User.php" style="float: left;">
