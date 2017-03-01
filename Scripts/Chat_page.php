@@ -1,5 +1,6 @@
 <?php
-	if(!file_exists("../chats/".$_POST['username'])){
+	require 'Database_Functions.php';
+	if(User_exists($db,$_POST['username'])=='0'){
 		session_start();
 		$_SESSION['nameerror']=1;
 		header("Location: ../index.php");
@@ -7,19 +8,19 @@
 	}
 	else
 	{
-		$userfilename="../chats/".$_POST['username']."/.user_creds";
-		$userfile = fopen($userfilename, "r") or die("Unable to open file!");
-		$creds = json_decode(fread($userfile,filesize($userfilename)));
-		if($creds->password!=$_POST['Password'])
+		if(Get_password($db,$_POST['username'])!=$_POST['Password'])
 		{
 			session_start();
+			//echo Get_password($db,$_POST['username']);
 			$_SESSION['passerror']=1;
 			header("Location: ../index.php");
 			exit();
 		}
 		else
 		{
-			header("Location: ../Chat_Page.html");
+			session_start();
+			$_SESSION['username']=$_POST['username'];
+			header("Location: Chat_Page.php");
 			exit();
 		}
 	}

@@ -1,24 +1,23 @@
 <?php
+	require 'Database_Functions.php';
 	session_start();
-	if(file_exists("../chats/".$_POST['username'])){
+	//$db=Connect_db();
+	if(User_exists($db,$_POST['username'])=='1'){
 		$_SESSION['usererror']=1;
 		header("Location: Sign_Up.php");
 		exit();
 	}
 	else{
 		//echo "string";
-		mkdir("../chats/".$_POST['username']."/");
-		$userfilename="../chats/".$_POST['username']."/.user_creds";
 		//echo $userfilename;
-		$userfile = fopen($userfilename, "w") or die("Unable to open file!");
 		$creds->firstname=$_POST['firstname'];
 		$creds->lastname=$_POST['lastname'];
 		$creds->username=$_POST['username'];
+		$creds->email=$_POST['email'];
 		$creds->password=$_POST['Password'];
-		$creds->time=time();
-		fwrite($userfile, json_encode($creds));
-		fclose($userfile);
-		header("Location: ../Chat_Page.html");
+		Add_user($db,$creds);
+		$_SESSION['username']=$_POST['username'];
+		header("Location: Chat_Page.php");
 		exit();
 		//echo "Done";
 	}
