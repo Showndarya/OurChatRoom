@@ -1,3 +1,9 @@
+ <!DOCTYPE html>
+ <html>
+ <head>
+  <meta http-equiv="refresh" content="2">
+</head>
+<body>
 <?php
 	require 'Database_Functions.php';
 	session_start();
@@ -10,3 +16,5 @@
 	//echo $_SESSION['username'];
 	Load_Chats_of($db,$_SESSION['username']);
 ?>
+</body>
+</html>
