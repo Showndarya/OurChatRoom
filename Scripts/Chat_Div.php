@@ -1,3 +1,9 @@
+ <!DOCTYPE html>
+ <html>
+ <head>
+  <meta http-equiv="refresh" content="2">
+</head>
+<body>
 <?php
 	//echo "string";
 	require 'Database_Functions.php';
@@ -53,3 +59,5 @@
 		echo "</form></div>";
 	}
 ?>
+</body>
+</html>
