@@ -1,7 +1,6 @@
-/*create database Chat_Room;*/
-
+/*create database Chat_Room*/
 create table if not exists users(
-	id int not null auto_increament,
+	id int not null auto_increment,
 	first_name varchar(30) not null,
 	last_name varchar(20),
 	user_name varchar(30) unique,
@@ -12,7 +11,7 @@ create table if not exists users(
 );
 
 create table if not exists chats(
-	id int not null auto_increament,
+	id int not null auto_increment,
 	creator int,
 	is_group tinyint,
 	create_time datetime,
@@ -21,13 +20,13 @@ create table if not exists chats(
 );
 
 create table if not exists messages(
-	id int not null auto_increament,
+	id int not null auto_increment,
 	chat_id int,
 	sender_id int,
 	time datetime,
 	contents longtext,
 	foreign key (chat_id) references chats(id),
-	foreign key (sender) references users(id),
+	foreign key (sender_id) references users(id),
 	primary key (id)
 );
 
